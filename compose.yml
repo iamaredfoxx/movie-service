@@ -1,0 +1,14 @@
+services:
+  small-service:
+    container_name: small-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    networks:
+      - small-service
+
+networks:
+  small-service:
+    external: true
