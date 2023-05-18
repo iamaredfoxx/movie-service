@@ -17,9 +17,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Load Movie Data
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Small Service running smooth :)")
+		return c.JSON(http.StatusOK, map[string]any{
+			"message": "Small Service running smooth :)",
+		})
 	})
 	e.Logger.Fatal(e.Start(os.Getenv("APP_EXPOSE")))
 }
